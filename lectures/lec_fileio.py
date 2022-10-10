@@ -37,7 +37,7 @@ print(fobj.closed)
 # ----------------------------------------------------------------------------
 #   Comparing different approaches to get the contents
 # ----------------------------------------------------------------------------
-# Remember that we previously closed the file so we need to open it again
+# Remember that we previously closed the file, so we need to open it again
 fobj = open(SRCFILE, mode='r')
 # Contents using `.read`
 # cnts = fobj.read() ## OLD
@@ -80,7 +80,7 @@ fobj.close()
 # ----------------------------------------------------------------------------
 #   Using context managers
 # ----------------------------------------------------------------------------
-Instead of fobj = open(SRCFILE, mode='r'), use a context manager:
+#Instead of fobj = open(SRCFILE, mode='r'), use a context manager:
 
 with open(SRCFILE, mode='r') as fobj:
     cnts = fobj.read()
@@ -197,10 +197,14 @@ def safe_open(pth, mode):
     pth : str
         Location of the file
     mode : str
-        How to open the file. Typically 'w' for writing, 'r' for reading,
+        How to open the file. Typically, 'w' for writing, 'r' for reading,
         and 'a' for appending. See the `open` function for more options.
     """
-
-    with open(pth = pth, mode = mode) as fobj
-
+    if (mode != 'w' or (os.path.exists(pth) and os.path.getsize(pth) > 0)):
+        with open(pth = pth, mode = mode) as fobj:
+            cnts = fobj.read()
+    else:
+        print("Change mode - file exists and has content. Using 'w' will overwrite the file.")
     pass
+
+safe_open('DSTFILE', 'w')
