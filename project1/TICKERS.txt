@@ -9,7 +9,9 @@ PG
 DAL
 TSLA
 DIS
-CSCO
+   CSCO
+
+
 MSFT
 PFE
 PYPL

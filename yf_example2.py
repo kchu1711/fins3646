@@ -4,9 +4,6 @@ Example of a function to download stock prices from Yahoo Finance.
 """
 
 import yfinance as yf
-import os
-
-import toolkit_config as cfg
 
 
 def yf_prc_to_csv(tic, pth, start=None, end=None):
@@ -31,10 +28,3 @@ def yf_prc_to_csv(tic, pth, start=None, end=None):
     """
     df = yf.download(tic, start=start, end=end)
     df.to_csv(pth)
-
-
-# Example
-if __name__ == "__main__":
-    tic = 'QAN.AX'
-    pth = os.path.join(cfg.DATADIR, 'qan_stk_prc.csv')
-    yf_prc_to_csv(tic, pth)

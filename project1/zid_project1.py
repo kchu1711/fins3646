@@ -35,7 +35,7 @@ COLUMNS = ['Volume', 'Date', 'Adj Close', 'Close', 'Open', 'High']
 # - Each key (<col>) is a column name in the `COLUMNS` list
 # - Each value (<width>) is an **integer** with the width of the column, as
 #   defined in your README.txt file
-#
+
 COLWIDTHS = {
     'Volume': 14,
     'Date': 11,
@@ -44,7 +44,6 @@ COLWIDTHS = {
     'Open': 6,
     'High': 20
 }
-
 
 # ----------------------------------------------------------------------------
 #   Please complete the body of this function, so it matches its docstring
@@ -77,7 +76,7 @@ def get_tics(pth):
 
     with open(pth) as fobj:
         for line in fobj:
-            ticker = line.rstrip().lower()
+            ticker = line.strip().lower()
             if ticker != '':
                 tickers.append(ticker)
 
@@ -121,10 +120,9 @@ def read_dat(tic):
 
     with open(dat_pth) as fobj:
         for line in fobj:
-            dat_content.append(line.rstrip())
+            dat_content.append(line.strip())
 
     return dat_content
-
 
 # ----------------------------------------------------------------------------
 #   Please complete the body of this function, so it matches its docstring

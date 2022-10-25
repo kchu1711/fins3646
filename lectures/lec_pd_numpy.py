@@ -101,13 +101,13 @@ df = pd.DataFrame({'Close': prc_ser, 'Bday': bday_ser})
 
 # Note that the dtypes changed
 #print("\nThis is the `df` dataframe:") 
-#print(df.info()) 
+#df.info() 
 #print("\nThis is the `df_nan` dataframe:") 
 #print(df_nan.info()) 
 
 # Convert dtypes
 #df_new = df_nan.convert_dtypes() 
-#print(df_new.info()) 
+#df_new.info()  
 
 #print(df_new.loc['3000-01-01']) 
 #print(type(df_new.loc['3000-01-01', 'Bday'])) 
